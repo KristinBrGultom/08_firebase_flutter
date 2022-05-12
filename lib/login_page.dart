@@ -1,12 +1,10 @@
-// ignore: duplicate_ignore
-// ignore_for_file: deprecated_member_use, non_constant_identifier_names, duplicate_ignore
+// ignore_for_file: deprecated_member_use
 
 import 'package:firebase_flutter/first_screen.dart';
+import 'package:firebase_flutter/sign_in.dart';
 import 'package:flutter/material.dart'; 
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
- 
+class LoginPage extends StatefulWidget { 
  @override
  _LoginPageState createState() => _LoginPageState(); 
 } 
@@ -35,6 +33,7 @@ class _LoginPageState extends State<LoginPage> {
  splashColor: Colors.grey, 
  onPressed: () { 
  signInWithGoogle().then((result) { 
+ // ignore: unnecessary_null_comparison
  if (result != null) { 
  Navigator.of(context).push( 
  MaterialPageRoute( 
@@ -54,10 +53,9 @@ class _LoginPageState extends State<LoginPage> {
  child: Row( 
  mainAxisSize: MainAxisSize.min, 
  mainAxisAlignment: MainAxisAlignment.center, 
- // ignore: prefer_const_literals_to_create_immutables
- children: <Widget>[ 
- const Image(image: AssetImage("assets/google_logo.png"), height: 35.0), 
- const Padding( 
+ children: const <Widget>[ 
+ Image(image: AssetImage("assets/google_logo.png"), height: 35.0), 
+ Padding( 
  padding: EdgeInsets.only(left: 10), 
  child: Text( 
  'Sign in with Google', 
@@ -71,11 +69,5 @@ class _LoginPageState extends State<LoginPage> {
  ), 
  ), 
  ); 
- }
-
-  signInWithGoogle() {}
-
-
-
-  // ignore: non_constant_identifier_names
-}
+ } 
+} 

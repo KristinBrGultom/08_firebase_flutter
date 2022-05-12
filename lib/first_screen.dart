@@ -1,18 +1,17 @@
 // Copyright (c) 2019 Souvik Biswas
+// ignore_for_file: deprecated_member_use
+
 import 'package:firebase_flutter/login_page.dart';
 import 'package:firebase_flutter/sign_in.dart';
 import 'package:flutter/material.dart'; 
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({Key? key}) : super(key: key);
-
-  String? get imageUrl => null;
-
-  String? get name => null;
  
  @override
  Widget build(BuildContext context) { 
- var container = Container( 
+ return Scaffold( 
+ body: Container( 
  decoration: const BoxDecoration( 
  gradient: LinearGradient( 
  begin: Alignment.topRight, 
@@ -27,7 +26,7 @@ class FirstScreen extends StatelessWidget {
  children: <Widget>[ 
  CircleAvatar( 
  backgroundImage: NetworkImage( 
- imageUrl!, 
+ imageUrl, 
  ), 
  radius: 60, 
  backgroundColor: Colors.transparent, 
@@ -41,7 +40,7 @@ class FirstScreen extends StatelessWidget {
  color: Colors.black54), 
  ), 
  Text( 
- name!, 
+ name, 
  style: const TextStyle( 
  fontSize: 25, 
  color: Colors.deepPurple, 
@@ -63,13 +62,12 @@ class FirstScreen extends StatelessWidget {
  fontWeight: FontWeight.bold), 
  ), 
  const SizedBox(height: 40), 
- // ignore: deprecated_member_use
  RaisedButton( 
  onPressed: () { 
  signOutGoogle(); 
  
 Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) 
-{return const LoginPage();}), ModalRoute.withName('/')); 
+{return LoginPage();}), ModalRoute.withName('/')); 
  }, 
  color: Colors.deepPurple, 
  child: const Padding( 
@@ -86,9 +84,7 @@ Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)
  ], 
  ), 
  ), 
- );
- return Scaffold( 
- body: container, 
+ ), 
  ); 
  } 
 } 
